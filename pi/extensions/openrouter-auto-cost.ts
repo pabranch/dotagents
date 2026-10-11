@@ -8,44 +8,16 @@
  * `cost = -1 * tokens` and drives the session total hugely negative.
  *
  * This extension recomputes `usage.cost` at `message_end` from the response
- * model's real rates. Add or adjust prices in RATES below. When a routed model
- * is not listed, the cost is recorded as $0 and you get a notification instead
- * of silently losing the charge.
- *
- * Rates are US dollars per million tokens.
+ * model's cost in the OpenRouter model registry, but only when Pi's reported
+ * cost is non-positive. Set or update rates in `models.json`; unknown routed
+ * models are recorded as $0 with a notification.
  */
 
 import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-agent";
 
-type Rates = {
-	input: number;
-	output: number;
-	cacheRead: number;
-	cacheWrite: number;
-};
-
-// Calibrated 2026-10-05 against the OpenRouter dashboard. Adjust as the router
-// mix and OpenRouter pricing change.
-const RATES: Record<string, Rates> = {
-	"deepseek/deepseek-v4.1-flash": {
-		input: 0.3104,
-		output: 1.2416,
-		cacheRead: 0.0062,
-		cacheWrite: 0,
-	},
-	"deepseek/deepseek-v4-flash-0731": {
-		input: 0.1166,
-		output: 9.8166,
-		cacheRead: 0.1166,
-		cacheWrite: 0,
-	},
-	"z-ai/glm-5.3-flash": {
-		input: 0.15,
-		output: 0.5,
-		cacheRead: 0.03,
-		cacheWrite: 0,
-	},
-};
+// Pricing lives in the OpenRouter model overrides in models.json. The model
+// registry merges those overrides with Pi's model catalog, avoiding a second
+// rates table here and in the historical-session fixer.
 
 type Cost = {
 	input: number;
@@ -70,7 +42,7 @@ type AssistantMessageLike = {
 };
 
 export default function openrouterAutoCost(pi: ExtensionAPI) {
-	// Only warn once per unrouted model per extension load, so a long session
+	// Only warn once per unknown routed model per extension load, so a long session
 	// does not spam the notification area.
 	const warned = new Set<string>();
 
@@ -85,15 +57,21 @@ export default function openrouterAutoCost(pi: ExtensionAPI) {
 
 		const usage = message.usage;
 		if (!usage) return;
+		if (![usage.input, usage.output, usage.cacheRead, usage.cacheWrite].some((tokens) => (tokens ?? 0) > 0)) return;
+		if (typeof usage.cost?.total === "number" && usage.cost.total > 0) return;
 
-		const rates = RATES[responseModel];
+		const model = ctx.modelRegistry.find("openrouter", responseModel);
+		// Keep the mutation scoped to OpenRouter even if the registry or message
+		// metadata is unexpected.
+		if (model && model.provider !== "openrouter") return;
+		const rates = model?.cost;
 		if (!rates) {
 			usage.cost = { input: 0, output: 0, cacheRead: 0, cacheWrite: 0, total: 0 };
 			if (!warned.has(responseModel)) {
 				warned.add(responseModel);
 				ctx.ui.notify(
 					`openrouter-auto-cost: no rate for routed model "${responseModel}" (from ${message.model}). ` +
-						`Recorded as $0. Add it to RATES in ~/.pi/agent/extensions/openrouter-auto-cost.ts.`,
+						`Recorded as $0. Add its cost under providers.openrouter.modelOverrides in models.json.`,
 					"warning",
 				);
 			}

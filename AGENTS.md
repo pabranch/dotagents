@@ -16,6 +16,7 @@
 - skills for all agents are in `~/.agents/skills`
 - Agent-specific skills and config are in `~/.agents/<agent-name>/` e.g. `~/.agents/pi/extensions` for the `pi` agent.
 - Personal persistent context is `~/.agents/PERRY.md`: always-on working directives plus an index of `~/.agents/perry/*.md`. Read the topic file whose `Read when` trigger matches the task.
+- Identical checkouts of the same repo — extra git worktrees, the deliberate `~/projects/dotbare-cfg` clone, etc. — are expected and managed. Don't flag them as duplication.
 
 ## Session conventions
 

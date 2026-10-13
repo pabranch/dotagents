@@ -4,6 +4,7 @@
 
 - Perry's dotfiles live in a bare git repo at `~/.cfg` (worktree `~/`, exposed via the `cfg` alias).
 - `~/projects/dotbare-cfg` is a separate clone of `~/.cfg`, kept on purpose: the `~/` worktree sets `status.showUntrackedFiles=no`, so the clone is where untracked files show in status. Treat it as intentional, not a duplicate.
+- Work is often pushed to GitHub from the `~/projects/dotbare-cfg` clone. Afterwards the `~/.cfg` bare repo still needs a `git fetch` before its `origin/main` reflects the push — otherwise it reports `ahead` spuriously.
 - For dotfile work, also follow `~/.config/dotbare-cfg/AGENTS.md`.
 
 ## Commit prefixes

@@ -24,7 +24,8 @@ import shutil
 import sys
 import time
 
-AGENT_DIR = os.path.expanduser(os.environ.get("PI_CODING_AGENT_DIR", "~/.pi/agent"))
+_default_agent_dir = os.path.join(os.environ.get("XDG_CONFIG_HOME", "~/.config"), "pi")
+AGENT_DIR = os.path.expanduser(os.environ.get("PI_CODING_AGENT_DIR", _default_agent_dir))
 MODELS_JSON = os.path.join(AGENT_DIR, "models.json")
 SESSION_ROOT = os.environ.get("PI_SESSION_ROOT", os.path.join(AGENT_DIR, "sessions"))
 

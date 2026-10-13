@@ -32,7 +32,7 @@ if [[ -z "$session" ]]; then
 	exit 2
 fi
 
-agent_dir="${PI_CODING_AGENT_DIR:-$HOME/.pi/agent}"
+agent_dir="${PI_CODING_AGENT_DIR:-${XDG_CONFIG_HOME:-$HOME/.config}/pi}"
 session_dir="${PI_CODING_AGENT_SESSION_DIR:-$agent_dir/sessions}"
 
 # Resolve the session argument to a file path.

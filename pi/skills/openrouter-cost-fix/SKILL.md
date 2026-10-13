@@ -13,7 +13,7 @@ See [BACKGROUND.md](BACKGROUND.md) for the root cause, symptoms, and operational
 
 1. **Get authoritative prices.** Use user-provided or dashboard-calibrated rates for the concrete routed model ID (for example, `openai/gpt-6-luna`), in USD per million tokens. Do not infer missing input, output, cache-read, or cache-write rates; ask the user for any missing values. Ask about tiers when pricing changes at context thresholds.
 
-2. **Update `models.json`.** Resolve the agent directory from `PI_CODING_AGENT_DIR`, defaulting to `~/.pi/agent`. In `models.json`, add or update:
+2. **Update `models.json`.** Resolve the agent directory from `PI_CODING_AGENT_DIR`, defaulting to `${XDG_CONFIG_HOME:-$HOME/.config}/pi`. In `models.json`, add or update:
 
    ```json
    {

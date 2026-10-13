@@ -3,7 +3,7 @@
 **Audience: AI agents.** Format this file for parsing, not for humans —
 backticks for literal commands, files, and paths; terse, unambiguous phrasing.
 
-Personal persistent context for coding agents working with Perry. Loaded via reference, for example from `~/.pi/agent/AGENTS.md`. Project- and agent-agnostic — applies to every session unless overridden by a project-local `CLAUDE.md` or `AGENTS.md` file.
+Personal persistent context for coding agents working with Perry. Loaded via reference, for example from `~/.config/pi/AGENTS.md`. Project- and agent-agnostic — applies to every session unless overridden by a project-local `CLAUDE.md` or `AGENTS.md` file.
 
 ## Always applies
 

@@ -7,6 +7,8 @@ description: Update OpenRouter auto-router model prices or repair persisted sess
 
 Keep one pricing source of truth: the active agent directory's `models.json`. The extension reads model prices from Pi's model registry, and the historical fixer reads the same `models.json`; do not maintain a separate rates table.
 
+See [BACKGROUND.md](BACKGROUND.md) for the root cause, symptoms, and operational tips (loading the extension, restarting Pi, tiers, backups).
+
 ## Update rates and repair history
 
 1. **Get authoritative prices.** Use user-provided or dashboard-calibrated rates for the concrete routed model ID (for example, `openai/gpt-6-luna`), in USD per million tokens. Do not infer missing input, output, cache-read, or cache-write rates; ask the user for any missing values. Ask about tiers when pricing changes at context thresholds.

@@ -19,6 +19,7 @@ Read only the file relevant to the task; each also states its own trigger.
 | File | Read when |
 | --- | --- |
 | `~/.agents/perry/tooling.md` | performing system tasks, searching the filesystem, or choosing CLI tools |
+| `~/.agents/perry/principles.md` | making design decisions or resolving conflicting instructions |
 | `~/.agents/perry/git.md` | doing any git work — staging, committing, history edits, aliases, commit messages |
 | `~/.agents/perry/testing.md` | editing code or config, running tests/diagnostics, or touching `$HOME`, editor plugins, tmux, or packages |
 | `~/.agents/perry/dotfiles.md` | working on dotfiles or the `cfg` bare repo |

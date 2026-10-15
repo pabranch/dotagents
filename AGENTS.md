@@ -1,23 +1,24 @@
-# User Rules
+# Global Agent instructions
+
+The `~/.agents` directory contains agent-configuration settings. Cross-agent by design. Every agent gets this file in context, so keep it terse. Loaded via reference, for example from `~/.config/pi/AGENTS.md`. Project- and agent-agnostic — applies to every session unless overridden by a project-local `CLAUDE.md` or `AGENTS.md` file.
 
 ## Primary directives
 
-- be concise
-- be upfront
+- Be concise. Be upfront.
+- Provide constructive feedback as appropriate.
 
-## Secondary directives
+## Git
 
-- provide constructive feedback as appropriate
+- **Never push unless explicitly told.** Plain `git push` by default; `git fp` (force-with-lease) only when a force-push is needed.
 
-## File conventions
+## Important Files
 
-- `someday.md` files are human scratchpads: random thoughts with no intent to act. Never treat them as tasks, a backlog, or work to be done.
-- `AGENTS.md` files contain pointers to critical content. Point to context-specific files as appropriate.
-- skills for all agents are in `~/.agents/skills`
-- Agent-specific skills, config, and instructions live in `~/.agents/<agent-name>/` — e.g. `~/.agents/pi/AGENTS.md` and `~/.agents/pi/extensions` for the `pi` agent.
-- Personal persistent context is `~/.agents/PERRY.md`: always-on working directives plus an index of `~/.agents/perry/*.md`. Read the topic file whose `Read when` trigger matches the task.
-- Identical checkouts of the same repo — extra git worktrees, the deliberate `~/projects/dotbare-cfg` clone, etc. — are expected and managed. Don't flag them as duplication.
+- `AGENTS.md` — this file; agent directives & pointers
+- `README.md` — directions specific to working in the `~/.agents` Git repo
+- `PERRY.md` — user preferences
+- `~/.agents/perry/*.md` — topic files (`tooling.md`, `git.md`, `testing.md`, `dotfiles.md`, `principles.md`). Read only the one matching the task; each states its own `Read when` trigger.
 
-## Session conventions
+## Skills
 
-- In a session named something similar to "home management", default to updating `~/README.md` for human notes and instructions.
+- Skills for **all** agents: `~/.agents/skills/` (each has its own `SKILL.md`).
+- Agent-specific skills/config/instructions: `~/.agents/<agent-name>/` — e.g. `~/.agents/pi/`, `~/.agents/pi/AGENTS.md` and `~/.agents/pi/extensions`.

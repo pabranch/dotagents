@@ -28,3 +28,4 @@ For project work, use `mise`; system-level applications are managed with `brew`.
   runs are fast after the first.
 - When changing a project's code, add a local `mise.toml` (e.g. `go = "1.26"`)
   so the version is pinned and the bare tool name works inside the directory.
+- **Workmux worktree paths.** Worktrees live in `<parent>/<project>__worktrees/<name>`, a sibling of `<parent>/<project>`, so a prompt file in a worktree refers to project-level files as `../../<project>.TODO.md`, not `../<project>.TODO.md`.

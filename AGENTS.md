@@ -18,6 +18,13 @@ The `~/.agents` directory contains agent-configuration settings. Cross-agent by 
 - `PERRY.md` — user preferences
 - `~/.agents/perry/*.md` — topic files (`tooling.md`, `git.md`, `testing.md`, `dotfiles.md`, `principles.md`). Read only the one matching the task; each states its own `Read when` trigger.
 
+## Handoff files
+
+- A `HANDOFF.md` may exist in any directory you work in, not just `~/.agents`. If one exists in your current directory, **read it before starting**; it carries background for work in progress: why staged/uncommitted changes exist, recent context, and what remains.
+- Scoped variants use a dotted topic suffix: `HANDOFF.<topic>.md` (e.g. `HANDOFF.agent-communication.md`). If a variant exists in your current directory and its topic relates to your task, read it before starting.
+- Handoff files are transient current state, not durable instruction files.
+- **Never commit a handoff file**, and **do not gitignore it.** Leaving it untracked keeps it visible in `git status` noise, which motivates completing (or explicitly deleting) the handoff. A lingering untracked `HANDOFF*.md` is a task waiting to be closed. This relies on reading status output — `git add -A` will still commit the file.
+
 ## Skills
 
 - Skills for **all** agents: `~/.agents/skills/` (each has its own `SKILL.md`).

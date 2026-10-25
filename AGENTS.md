@@ -16,7 +16,7 @@ The `~/.agents` directory contains agent-configuration settings. Cross-agent by 
 - `AGENTS.md` — this file; agent directives & pointers
 - `README.md` — directions specific to working in the `~/.agents` Git repo
 - `PERRY.md` — user preferences
-- `~/.agents/perry/*.md` — topic files (`tooling.md`, `git.md`, `testing.md`, `dotfiles.md`, `principles.md`, `workmux.md`). Read only the one matching the task; each states its own `Read when` trigger.
+- `~/.agents/perry/*.md` — topic files (`tooling.md`, `git.md`, `testing.md`, `dotfiles.md`, `principles.md`, `workmux.md`). Read only the one matching the task; each states its own `Read when` trigger. Shell/command-history questions → `tooling.md`.
 
 ## Handoff files
 

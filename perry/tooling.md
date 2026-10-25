@@ -1,6 +1,6 @@
 # Tooling preferences
 
-> **Read when:** performing system tasks, searching the filesystem, or choosing CLI tools.
+> **Read when:** performing system tasks, searching the filesystem, choosing CLI tools, or answering questions about shell/command history.
 
 Prefer modern tools installed in the environment:
 
@@ -17,6 +17,10 @@ Prefer modern tools installed in the environment:
 - **mise** — project-specific tools needing version management and `.env` handling.
 
 For project work, use `mise`; system-level applications are managed with `brew`.
+
+## Shell history
+
+History is recorded in **Atuin** (and queryable through its MCP server). When returning the user's history, include only commands the user ran; exclude agent-run entries (they carry an author such as `pi` or `claude-code`) unless the user explicitly asks for agent activity. In Atuin, filter with `authors: ["$all-user"]` (MCP) or `--author '$all-user'` (CLI).
 
 ## Running tools with mise
 

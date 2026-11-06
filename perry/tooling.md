@@ -11,6 +11,12 @@ Prefer modern tools installed in the environment:
 - **`zoxide` / `fzf`** — efficient navigation.
 - **Assume GNU syntax.** Mention BSD/macOS differences only for material edge cases.
 
+## tuios layout
+
+- Open secondary panes (servers, logs, tests, or other supporting work) in a **horizontal split below the current agent pane**: `tuios split-window horizontal -w "$TUIOS_PANE_ID" --name NAME`. Run the supporting command in the new pane.
+- When rearranging an existing secondary pane, preserve its running process and unrelated panes. Focus the agent pane and use `tuios set-layout --rotate` when the pair only needs its split axis flipped.
+- Verify with `tuios list-windows --json` that the supporting pane is directly below the agent pane, and return focus to the agent pane.
+
 ## Package management
 
 - **brew** — general system-level application management.

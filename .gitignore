@@ -4,3 +4,6 @@ skills-source.json
 
 # Installed and updated by tuios.
 /skills/tuios/
+
+# Work-specific skill, tracked in the work dotfiles repo.
+/skills/galvanize-curriculum

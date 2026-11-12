@@ -8,10 +8,6 @@ This is **not a software project** — if `package.json`, `go.mod`, CI configs o
 similar build/test/lint/CI elements ever appear here, that claim no longer
 holds; stop and reassess this file.
 
-## Workflow
-
-Commit changes to this repo immediately after verification; the history can be cleaned up later. Push only when explicitly requested.
-
 ## Files
 
 - `setup.sh` — source for environment overrides (e.g. `LLAMA_ARG_MODELS_DIR`).

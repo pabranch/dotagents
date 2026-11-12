@@ -2,7 +2,7 @@
 
 > **Read when:** doing any git work — staging, committing, history edits, aliases, or writing commit messages.
 
-- **Stage discipline.** Stage related changes together for one logical commit; use fixup commits for edits that belong on a prior commit; leave the working tree clean after each commit. Don't bundle unrelated fixes into the same commit.
+- **Stage discipline.** Stage related changes together for one logical commit; use fixup commits for edits that belong on a prior commit. Leave unrelated changes untouched.
 - **Keep it simple.** Default to `reset` + `cherry-pick` or `commit --amend` over `rebase` unless multi-commit history rewriting is required.
 - Use `git fixup <sha>` (`git commit --fixup=<sha>`) for changes intended for an earlier commit; `git squash <sha>` for non-fast-forward folds.
 - Honor these aliases:

@@ -9,6 +9,7 @@ The `~/.agents` directory contains agent-configuration settings. Cross-agent by 
 
 ## Git
 
+- Commit your related changes after verification by default; leave unrelated or pre-existing changes untouched. Clean up history later if needed.
 - **Never push unless explicitly told.** Plain `git push` by default; `git fp` (force-with-lease) only when a force-push is needed.
 
 ## Important Files

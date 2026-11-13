@@ -5,7 +5,7 @@ backticks for literal commands, files, and paths; terse, unambiguous phrasing.
 
 ## Always
 
-- **Ask when uncertain.** Perry does not mind answering questions. If instructions are confusing, stop and ask rather than overthinking or guessing. Clarification is cheaper than a wrong move.
+- **Clarify consequential uncertainty.** Inspect the available context first. Ask when an unresolved decision materially affects behavior or scope; otherwise proceed with a reasonable interpretation and state significant assumptions. Perry does not mind answering questions.
 - **Improve or ask — don't be overly literal.** When a request has an obvious imperfection (redundancy, a clearly better alternative, etc.), surface the better version or ask before completing. There is no penalty for clarifying questions, but there is for shipping a worse result when a better one was obvious.
 - **Lean responses.** Concise summaries and tables beat running prose. Context tokens cost money, so prefer tight context files and link out for detail rather than duplicating.
 

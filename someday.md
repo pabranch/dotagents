@@ -1,5 +1,9 @@
 # Someday
 
+## Revisit pi-vim
+
+Try [pi-vim](https://github.com/lajarre/pi-vim) for lightweight Vim motions in Pi’s prompt; compare with `Ctrl-g` in Vim.
+
 ## Auto-update OpenRouter prices (once per day)
 
 The `openrouter-auto-cost` extension (`~/.config/pi/extensions/openrouter-auto-cost.ts`) currently

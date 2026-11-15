@@ -11,6 +11,13 @@ On the work computer, follow `~/.agents/perry/work-dotfiles.md` instead of the p
 - Work is often pushed to GitHub from the `~/projects/dotbare-cfg` clone. Afterwards the `~/.cfg` bare repo still needs a `git fetch` before its `origin/main` reflects the push — otherwise it reports `ahead` spuriously.
 - For dotfile work, also follow `~/.config/dotbare-cfg/AGENTS.md`.
 
+## User bin directories
+
+- `~/.local/bin` is canonical; `~/bin` aliases it via a Linux symlink or Windows junction. The alias is host-specific and not tracked in Git; shell configuration puts both paths on `PATH`.
+- Track intentional scripts under `.local/bin/`, not `bin/`. `.local` is ignored, so force-add new scripts explicitly (for example, `cfg add -f -- ~/.local/bin/<file>`); keep tool-managed binaries untracked.
+- Git may also report those files as untracked via `bin/`. Stage the canonical `.local/bin/` paths explicitly, not the alias paths.
+- Checking out or rebasing historical commits that track `bin/` can remove or replace the alias. Verify it afterward; compare and preserve both directories' contents before repairing it.
+
 ## Commit prefixes
 
 Commit-prefix reference for the DOTFILES repo (used by humans and agents alike):
